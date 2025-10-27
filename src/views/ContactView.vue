@@ -1,11 +1,6 @@
 <template>
   <section class="pt-24 pb-8 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-      <nav class="text-sm text-gray-500 mb-6 scroll-reveal">
-        <router-link to="/" class="hover:text-primary transition-colors">Home</router-link>
-        <span class="mx-2">></span>
-        <span class="text-gray-700">Contact</span>
-      </nav>
       <div class="text-center mb-12 scroll-reveal">
         <h1 class="font-playfair text-4xl lg:text-5xl font-bold text-primary mb-4">Contact Us</h1>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">

@@ -2,14 +2,6 @@
   <!-- ===== Hero Section ===== -->
   <section class="pt-24 pb-8 bg-white">
     <div class="max-w-7xl mx-auto px-6">
-      <nav class="text-sm text-gray-500 mb-6 scroll-reveal">
-        <a href="https://readdy.ai/home/596364b0-1abe-4f0c-95b0-76ae3006c30d/f18f1c85-acdd-41bf-9057-a3bb25181cef"
-          data-readdy="true" class="hover:text-primary transition-colors">
-          Home
-        </a>
-        <span class="mx-2">></span>
-        <span class="text-gray-700">Gallery</span>
-      </nav>
       <div class="text-center mb-12 scroll-reveal">
         <h1 class="font-playfair text-4xl lg:text-5xl font-bold text-primary mb-4">Photo Gallery</h1>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -35,11 +27,13 @@
           @click="openLightbox(index)">
           <div class="bg-white rounded-2xl overflow-hidden shadow-sm photo-hover">
             <div class="relative bg-gray-100">
-              <!-- Loading spinner overlay -->
-              <div class="absolute inset-0 flex items-center justify-center">
-                <i class="ri-loader-4-line text-3xl text-gray-400 animate-spin"></i>
+              <!-- Shimmer skeleton overlay -->
+              <div class="absolute inset-0 img-skeleton overflow-hidden pointer-events-none z-20">
+                <div class="shimmer w-full h-full"></div>
               </div>
-              <img :src="photo.src" :alt="photo.title" class="w-full h-80 object-cover relative z-10" loading="lazy" referrerpolicy="no-referrer"
+              <img :src="photo.src" :alt="photo.title"
+                class="w-full h-80 object-cover relative z-10 opacity-0 transition-opacity duration-300"
+                :loading="index < 6 ? 'eager' : 'lazy'" decoding="async" referrerpolicy="no-referrer" :fetchpriority="index < 6 ? 'high' : 'auto'"
                 @error="handleImageError($event)" @load="handleImageLoad($event)" />
               <div
                 class="absolute inset-0 bg-black/0 hover:bg-black/30 transition-colors duration-300 flex items-center justify-center z-20 pointer-events-none">
@@ -92,7 +86,8 @@
       <div class="max-w-6xl w-full flex flex-col lg:flex-row gap-6 max-h-full">
         <div class="flex-1 flex items-center justify-center bg-black/20">
           <img :src="photos[currentPhotoIndex]?.src" :alt="photos[currentPhotoIndex]?.title"
-            class="max-w-full max-h-full object-contain" referrerpolicy="no-referrer" @error="handleImageError($event)" />
+            class="max-w-full max-h-full object-contain" referrerpolicy="no-referrer"
+            @error="handleImageError($event)" />
         </div>
 
         <div class="lg:w-80 bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-white overflow-y-auto">
@@ -293,23 +288,20 @@ function handleImageError(event: Event) {
   // Hide loading spinner
   const parent = img.parentElement
   if (parent) {
-    const spinner = parent.querySelector('.ri-loader-4-line')
-    if (spinner) {
-      ;(spinner.parentElement as HTMLElement).style.display = 'none'
-    }
+    const skeleton = parent.querySelector('.img-skeleton') as HTMLElement
+    if (skeleton) skeleton.style.display = 'none'
   }
 }
 
 function handleImageLoad(event: Event) {
   const img = event.target as HTMLImageElement
   img.style.opacity = '1'
+  img.classList.remove('opacity-0')
   // Hide loading spinner once image is loaded
   const parent = img.parentElement
   if (parent) {
-    const spinner = parent.querySelector('.ri-loader-4-line')
-    if (spinner) {
-      (spinner.parentElement as HTMLElement).style.display = 'none'
-    }
+    const skeleton = parent.querySelector('.img-skeleton') as HTMLElement
+    if (skeleton) skeleton.style.display = 'none'
   }
 }
 
@@ -332,3 +324,24 @@ onMounted(() => {
   })
 })
 </script>
+
+<style scoped>
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg,
+      rgba(229, 231, 235, 1) 25%,
+      rgba(243, 244, 246, 1) 37%,
+      rgba(229, 231, 235, 1) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+}
+</style>
