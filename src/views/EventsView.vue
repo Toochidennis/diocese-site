@@ -421,50 +421,6 @@
               </div>
             </div>
           </div>
-          <div class="bg-white rounded-2xl shadow-lg p-6">
-            <h3 class="font-playfair text-xl font-semibold text-primary mb-6">Quick Registration</h3>
-            <div class="space-y-4">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                <input type="text"
-                  class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:border-primary text-sm">
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                <input type="email"
-                  class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:border-primary text-sm">
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                <input type="tel"
-                  class="w-full px-4 py-2 border border-gray-300 !rounded-button focus:outline-none focus:border-primary text-sm">
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Event Interest</label>
-                <div class="relative">
-                  <button
-                    class="w-full flex items-center justify-between px-4 py-2 border border-gray-300 !rounded-button text-sm text-left"
-                    @click="toggleDropdown('eventInterest')">
-                    <span>Select Event Type</span>
-                    <i class="ri-arrow-down-s-line"></i>
-                  </button>
-                  <div id="eventInterest"
-                    class="hidden absolute top-full left-0 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-10">
-                    <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 transition-colors">Masses &
-                      Liturgy</a>
-                    <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 transition-colors">Youth
-                      Activities</a>
-                    <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50 transition-colors">Community
-                      Outreach</a>
-                  </div>
-                </div>
-              </div>
-              <button
-                class="w-full bg-primary text-white py-3 !rounded-button font-medium hover:bg-opacity-90 transition-colors whitespace-nowrap">
-                Register Interest
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
