@@ -103,18 +103,24 @@ const setFilter = (r: 'all' | Region) => (filter.value = r)
 
 /** Leaflet map (dynamic import so SSR/builds don’t choke) */
 const mapEl = ref<HTMLDivElement | null>(null)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let map: any = null
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let markersLayer: any = null
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let Lref: any | null = null
 
 const initMap = async () => {
   if (!mapEl.value) return
-  const L = await import('leaflet')
+  const leafletMod = await import('leaflet')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const L: any = (leafletMod as any).default ?? leafletMod
   // leaflet css (Vite handles this import side-effect)
   await import('leaflet/dist/leaflet.css')
+  Lref = L
 
-
-    // Fix default marker icon paths in bundlers
-  delete (L.Icon.Default.prototype as any)._getIconUrl
+  // Fix default marker icon paths in bundlers
+  delete (L.Icon.Default.prototype as unknown as Record<string, unknown>)['_getIconUrl']
   L.Icon.Default.mergeOptions({
     iconRetinaUrl: new URL('leaflet/dist/images/marker-icon-2x.png', import.meta.url).toString(),
     iconUrl: new URL('leaflet/dist/images/marker-icon.png', import.meta.url).toString(),
@@ -128,25 +134,24 @@ const initMap = async () => {
   }).addTo(map)
 
   markersLayer = L.layerGroup().addTo(map)
-  renderMarkers(L)
+  renderMarkers()
 }
 
-const renderMarkers = (L?: any) => {
-  if (!map || !markersLayer) return
+const renderMarkers = () => {
+  if (!map || !markersLayer || !Lref) return
   markersLayer.clearLayers()
-  const _L = L || (map as any).constructor ? undefined : undefined
 
   const withCoords = filteredParishes.value.filter(p => p.coords)
   if (!withCoords.length) return
 
   withCoords.forEach(p => {
-    const marker = (L || (window as any).L).marker([p!.coords!.lat, p!.coords!.lng])
+    const marker = Lref!.marker([p!.coords!.lat, p!.coords!.lng])
       .bindPopup(`<strong>${p.name}</strong><br/>${p.address}`)
     markersLayer.addLayer(marker)
   })
 
   // fit bounds
-  const bounds = (L || (window as any).L).latLngBounds(
+  const bounds = Lref!.latLngBounds(
     withCoords.map(p => [p!.coords!.lat, p!.coords!.lng])
   )
   map.fitBounds(bounds, { padding: [30, 30] })
@@ -234,7 +239,7 @@ onBeforeUnmount(() => {
             :data-region="p.region"
           >
             <div class="h-48 overflow-hidden">
-              <img :src="p.img" :alt="p.name" class="w-full h-full object-cover object-top" />
+              <img :src="p.img" :alt="p.name" loading="lazy" decoding="async" referrerpolicy="no-referrer" class="w-full h-full object-cover object-top" />
             </div>
             <div class="p-6">
               <h3 class="font-playfair text-xl font-semibold text-primary mb-2">{{ p.name }}</h3>
@@ -314,7 +319,7 @@ onBeforeUnmount(() => {
         <div class="grid lg:grid-cols-2 gap-12">
           <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover scroll-reveal">
             <div class="h-64 overflow-hidden">
-              <img
+              <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
                 src="https://readdy.ai/api/search-image?query=magnificent%20Catholic%20cathedral%20interior%20with%20high%20vaulted%20ceilings%2C%20beautiful%20altar%20with%20golden%20tabernacle%2C%20wooden%20pews%20arranged%20in%20rows%2C%20stained%20glass%20windows%20casting%20colorful%20light%2C%20sacred%20atmosphere%20with%20religious%20artwork%2C%20Nigerian%20cathedral%20sanctuary&width=600&height=400&seq=cathedral-interior&orientation=landscape"
                 alt="Cathedral Interior"
                 class="w-full h-full object-cover object-top"
@@ -356,7 +361,7 @@ onBeforeUnmount(() => {
 
           <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover scroll-reveal">
             <div class="h-64 overflow-hidden">
-              <img
+              <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
                 src="https://readdy.ai/api/search-image?query=historic%20Catholic%20mission%20church%20in%20Nigeria%2C%20old%20colonial%20architecture%20with%20stone%20walls%20and%20wooden%20beams%2C%20traditional%20church%20with%20bell%20tower%20and%20cross%2C%20heritage%20church%20surrounded%20by%20mature%20trees%2C%20historic%20religious%20building%20with%20character&width=600&height=400&seq=historic-mission&orientation=landscape"
                 alt="Historic Mission Church"
                 class="w-full h-full object-cover object-top"

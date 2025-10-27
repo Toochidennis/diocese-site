@@ -6,11 +6,9 @@
         <div class="space-y-8 scroll-reveal">
           <div class="flex items-center space-x-4">
             <div class="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg">
-              <img
+              <img referrerpolicy="no-referrer"
                 src="https://readdy.ai/api/search-image?query=dignified%20Catholic%20bishop%20in%20ceremonial%20robes%2C%20warm%20smile%2C%20pastoral%20presence%2C%20professional%20portrait%2C%20religious%20leader%2C%20kind%20eyes%2C%20episcopal%20vestments%2C%20spiritual%20authority%2C%20compassionate%20expression&width=200&height=200&seq=bishop1&orientation=squarish"
-                alt="Bishop"
-                class="w-full h-full object-cover object-top"
-              />
+                alt="Bishop" class="w-full h-full object-cover object-top" />
             </div>
             <div>
               <h3 class="font-playfair text-xl font-semibold text-primary">
@@ -34,13 +32,11 @@
 
           <div class="flex flex-col sm:flex-row gap-4">
             <button
-              class="bg-primary text-white px-8 py-4 rounded-button font-semibold hover:bg-opacity-90 transition-colors whitespace-nowrap"
-            >
+              class="bg-primary text-white px-8 py-4 rounded-button font-semibold hover:bg-opacity-90 transition-colors whitespace-nowrap">
               Explore Our Faith
             </button>
             <button
-              class="border-2 border-secondary text-secondary px-8 py-4 rounded-button font-semibold hover:bg-secondary hover:text-white transition-colors whitespace-nowrap"
-            >
+              class="border-2 border-secondary text-secondary px-8 py-4 rounded-button font-semibold hover:bg-secondary hover:text-white transition-colors whitespace-nowrap">
               Find a Parish
             </button>
           </div>
@@ -48,11 +44,9 @@
 
         <div class="lg:flex justify-end hidden">
           <div class="w-96 h-96 rounded-3xl overflow-hidden shadow-2xl">
-            <img
+            <img referrerpolicy="no-referrer"
               src="https://readdy.ai/api/search-image?query=beautiful%20Catholic%20church%20exterior%20with%20bell%20tower%2C%20peaceful%20countryside%20setting%2C%20traditional%20architecture%2C%20cross%20on%20top%2C%20stone%20construction%2C%20spiritual%20sanctuary%2C%20serene%20landscape%2C%20religious%20building%2C%20sacred%20architecture&width=400&height=400&seq=church1&orientation=squarish"
-              alt="Church"
-              class="w-full h-full object-cover object-top"
-            />
+              alt="Church" class="w-full h-full object-cover object-top" />
           </div>
         </div>
       </div>
@@ -71,11 +65,9 @@
         <!-- Card 1 -->
         <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scroll-reveal">
           <div class="h-48 overflow-hidden">
-            <img
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
               src="https://readdy.ai/api/search-image?query=Catholic%20youth%20gathering%20in%20church%20hall%2C%20young%20people%20praying%20together%2C%20community%20fellowship%2C%20religious%20education%2C%20spiritual%20formation%2C%20diverse%20group%20of%20teenagers%2C%20faith%20formation%20program&width=400&height=300&seq=news1&orientation=landscape"
-              alt="Youth Ministry"
-              class="w-full h-full object-cover object-top"
-            />
+              alt="Youth Ministry" class="w-full h-full object-cover object-top" />
           </div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-3">
@@ -96,11 +88,9 @@
         <!-- Card 2 -->
         <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scroll-reveal">
           <div class="h-48 overflow-hidden">
-            <img
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
               src="https://readdy.ai/api/search-image?query=Catholic%20charity%20event%2C%20volunteers%20helping%20community%2C%20food%20distribution%2C%20social%20outreach%2C%20compassionate%20service%2C%20helping%20the%20needy%2C%20Christian%20charity%20work%2C%20community%20support&width=400&height=300&seq=news2&orientation=landscape"
-              alt="Charity Work"
-              class="w-full h-full object-cover object-top"
-            />
+              alt="Charity Work" class="w-full h-full object-cover object-top" />
           </div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-3">
@@ -123,11 +113,9 @@
         <!-- Card 3 -->
         <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover scroll-reveal">
           <div class="h-48 overflow-hidden">
-            <img
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
               src="https://readdy.ai/api/search-image?query=Catholic%20ordination%20ceremony%2C%20new%20priests%20being%20ordained%2C%20bishop%20laying%20hands%2C%20religious%20ceremony%2C%20sacred%20ritual%2C%20white%20vestments%2C%20solemn%20occasion%2C%20spiritual%20calling&width=400&height=300&seq=news3&orientation=landscape"
-              alt="Ordination"
-              class="w-full h-full object-cover object-top"
-            />
+              alt="Ordination" class="w-full h-full object-cover object-top" />
           </div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-3">

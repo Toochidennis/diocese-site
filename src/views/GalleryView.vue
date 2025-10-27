@@ -39,7 +39,7 @@
               <div class="absolute inset-0 flex items-center justify-center">
                 <i class="ri-loader-4-line text-3xl text-gray-400 animate-spin"></i>
               </div>
-              <img :src="photo.src" :alt="photo.title" class="w-full h-80 object-cover relative z-10" loading="lazy"
+              <img :src="photo.src" :alt="photo.title" class="w-full h-80 object-cover relative z-10" loading="lazy" referrerpolicy="no-referrer"
                 @error="handleImageError($event)" @load="handleImageLoad($event)" />
               <div
                 class="absolute inset-0 bg-black/0 hover:bg-black/30 transition-colors duration-300 flex items-center justify-center z-20 pointer-events-none">
@@ -92,7 +92,7 @@
       <div class="max-w-6xl w-full flex flex-col lg:flex-row gap-6 max-h-full">
         <div class="flex-1 flex items-center justify-center bg-black/20">
           <img :src="photos[currentPhotoIndex]?.src" :alt="photos[currentPhotoIndex]?.title"
-            class="max-w-full max-h-full object-contain" @error="handleImageError($event)" />
+            class="max-w-full max-h-full object-contain" referrerpolicy="no-referrer" @error="handleImageError($event)" />
         </div>
 
         <div class="lg:w-80 bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-white overflow-y-auto">
@@ -270,15 +270,32 @@ function prevPhoto() {
 
 function handleImageError(event: Event) {
   const img = event.target as HTMLImageElement
-  // Set a placeholder or hide the broken image
+  const failedSrc = img.currentSrc || img.src
+  const retried = img.dataset.retried === '1'
+
+  // First failure: try once more with a cache-busting query param
+  if (!retried && failedSrc && failedSrc.startsWith('http')) {
+    try {
+      const url = new URL(failedSrc)
+      url.searchParams.set('cb', String(Date.now()))
+      img.dataset.retried = '1'
+      img.src = url.toString()
+      return
+    } catch {
+      // fall through to placeholder
+    }
+  }
+
+  // Second failure: show placeholder
   img.src = 'data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"800\" height=\"600\" viewBox=\"0 0 800 600\"%3E%3Crect fill=\"%23e5e7eb\" width=\"800\" height=\"600\"/%3E%3Ctext x=\"50%25\" y=\"50%25\" dominant-baseline=\"middle\" text-anchor=\"middle\" font-family=\"sans-serif\" font-size=\"24\" fill=\"%239ca3af\"%3EImage not available%3C/text%3E%3C/svg%3E'
   img.style.objectFit = 'contain'
+
   // Hide loading spinner
   const parent = img.parentElement
   if (parent) {
     const spinner = parent.querySelector('.ri-loader-4-line')
     if (spinner) {
-      (spinner.parentElement as HTMLElement).style.display = 'none'
+      ;(spinner.parentElement as HTMLElement).style.display = 'none'
     }
   }
 }

@@ -232,7 +232,7 @@
           <div id="listView" class="hidden space-y-6">
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
               <div class="h-48 overflow-hidden">
-                <img
+                <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
                   src="https://readdy.ai/api/search-image?query=Christmas%20midnight%20mass%20preparation%2C%20beautifully%20decorated%20church%20altar%20with%20candles%20and%20flowers%2C%20festive%20religious%20decorations%2C%20Christmas%20liturgy%20setup%2C%20sacred%20Christmas%20celebration%2C%20peaceful%20church%20interior%2C%20warm%20golden%20lighting&width=600&height=300&seq=christmas-mass&orientation=landscape"
                   alt="Christmas Eve Mass" class="w-full h-full object-cover object-top">
               </div>
@@ -273,7 +273,7 @@
             </div>
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
               <div class="h-48 overflow-hidden">
-                <img
+                <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
                   src="https://readdy.ai/api/search-image?query=Catholic%20youth%20retreat%20gathering%2C%20young%20people%20in%20prayer%20circle%2C%20spiritual%20formation%20activities%2C%20outdoor%20retreat%20setting%2C%20faith%20community%20building%2C%20religious%20education%20program%2C%20peaceful%20natural%20environment&width=600&height=300&seq=youth-retreat&orientation=landscape"
                   alt="Youth Retreat" class="w-full h-full object-cover object-top">
               </div>
@@ -314,7 +314,7 @@
             </div>
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
               <div class="h-48 overflow-hidden">
-                <img
+                <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
                   src="https://readdy.ai/api/search-image?query=Catholic%20charity%20food%20distribution%20event%2C%20volunteers%20helping%20families%2C%20community%20outreach%20program%2C%20charitable%20giving%2C%20social%20service%20ministry%2C%20helping%20the%20needy%2C%20Christian%20compassion%20in%20action&width=600&height=300&seq=charity-drive&orientation=landscape"
                   alt="Charity Drive" class="w-full h-full object-cover object-top">
               </div>
@@ -478,7 +478,7 @@
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
           <div class="h-48 overflow-hidden">
-            <img
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
               src="https://readdy.ai/api/search-image?query=Catholic%20confirmation%20ceremony%20completed%2C%20bishop%20with%20newly%20confirmed%20young%20adults%2C%20religious%20sacrament%20celebration%2C%20white%20robes%2C%20spiritual%20milestone%2C%20sacred%20ritual%2C%20faith%20community%20gathering%2C%20joyful%20celebration&width=400&height=300&seq=past-confirmation&orientation=landscape"
               alt="Past Confirmation" class="w-full h-full object-cover object-top">
           </div>
@@ -498,7 +498,7 @@
         </div>
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
           <div class="h-48 overflow-hidden">
-            <img
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
               src="https://readdy.ai/api/search-image?query=Catholic%20harvest%20festival%20celebration%2C%20community%20gathering%20with%20food%20and%20thanksgiving%2C%20parish%20festival%20atmosphere%2C%20families%20celebrating%20together%2C%20religious%20community%20event%2C%20joyful%20celebration%2C%20cultural%20traditions&width=400&height=300&seq=past-harvest&orientation=landscape"
               alt="Past Harvest Festival" class="w-full h-full object-cover object-top">
           </div>
@@ -518,7 +518,7 @@
         </div>
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
           <div class="h-48 overflow-hidden">
-            <img
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
               src="https://readdy.ai/api/search-image?query=Catholic%20pilgrimage%20group%20at%20shrine%2C%20faithful%20in%20prayer%20at%20sacred%20site%2C%20spiritual%20journey%20completed%2C%20religious%20pilgrimage%20experience%2C%20devotional%20travel%2C%20sacred%20destination%2C%20group%20prayer%20gathering&width=400&height=300&seq=past-pilgrimage&orientation=landscape"
               alt="Past Pilgrimage" class="w-full h-full object-cover object-top">
           </div>

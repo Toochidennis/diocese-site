@@ -16,46 +16,55 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      meta: { title: 'Home' }
     },
     {
       path: '/parishes',
       name: 'parishes',
       component: ParishesView,
+      meta: { title: 'Parishes' }
     },
     {
       path: '/bishops',
       name: 'bishops',
       component: BishopsView,
+      meta: { title: 'Bishops' }
     },
     {
       path: '/clergy',
       name: 'clergy',
       component: ClergyView,
+      meta: { title: 'Clergy' }
     },
     {
       path: '/news',
       name: 'news',
       component: NewsView,
+      meta: { title: 'News' }
     },
     {
       path: '/events',
       name: 'events',
       component: EventsView,
+      meta: { title: 'Events' }
     },
     {
       path: '/gallery',
       name: 'gallery',
       component: GalleryView,
+      meta: { title: 'Gallery' }
     },
     {
       path: '/about',
       name: 'about',
       component: AboutView,
+      meta: { title: 'About' }
     },
     {
       path: '/contact',
       name: 'contact',
       component: ContactView,
+      meta: { title: 'Contact' }
     },
   ],
   scrollBehavior() {

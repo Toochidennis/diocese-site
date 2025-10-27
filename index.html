@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/favicon.ico" sizes="any" />
+    <link rel="mask-icon" href="/favicon.svg" color="#0f172a" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://readdy.ai" crossorigin>
+    <link rel="dns-prefetch" href="//readdy.ai">
+    <title>Catholic Diocese of Wukari</title>
     <meta
       name="description"
       content="Catholic Diocese of Wukari — a sacred yet modern digital sanctuary."
     />
+    <link rel="canonical" href="https://cdwukari.org/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Catholic Diocese of Wukari" />
+    <meta property="og:description" content="Catholic Diocese of Wukari — a sacred yet modern digital sanctuary." />
+    <meta property="og:url" content="https://cdwukari.org/" />
+    <meta property="og:image" content="/og-image.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Catholic Diocese of Wukari" />
+    <meta name="twitter:description" content="Catholic Diocese of Wukari — a sacred yet modern digital sanctuary." />
+    <meta name="twitter:image" content="/og-image.jpg" />
+
+    <!-- Branding -->
+    <meta name="theme-color" content="#0f172a" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@400;600&family=Playfair+Display:wght@600;800&display=swap"
       rel="stylesheet"
@@ -18,16 +40,21 @@
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
 
+    <!-- NOTE: Replace /og-image.jpg with a real JPG/PNG. A starter SVG is available at /og-image.svg. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "CatholicChurch",
+        "@type": "Church",
         "name": "Catholic Diocese of Wukari",
-        "address": "St Mary's Wukari",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Wukari",
+          "addressCountry": "NG"
+        },
         "telephone": "+234907694303",
-        "email": "info@wukariofdiocese.org",
-        "url": "https://wuakriofdiocese.org",
-        "image": "/assets/img/hero.jpg"
+        "email": "info@cdwukari.org",
+        "url": "https://cdwukari.org",
+        "image": "https://cdwukari.org/og-image.jpg"
       }
     </script>
   </body>

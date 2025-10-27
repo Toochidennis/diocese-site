@@ -67,7 +67,7 @@
           </div>
 
           <button type="submit" :disabled="isSending"
-            class="w-full bg-primary text-white py-3 px-6 rounded-xl font-medium hover:bg-opacity-90 transition-colors">
+            class="w-full bg-primary text-white py-3 px-6 rounded-xl font-medium hover:bg-opacity-90 transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
             <span v-if="isSending">Sending...</span>
             <span v-else-if="sent" class="text-green-400">Message Sent!</span>
             <span v-else>Send Message</span>
@@ -77,15 +77,8 @@
 
       <div class="scroll-reveal">
         <h2 class="font-playfair text-3xl font-bold text-primary mb-6">Find Us</h2>
-        <div class="bg-gray-200 rounded-2xl overflow-hidden mb-6"
-          style="height: 400px; background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-size: cover; background-position: center;">
-          <div class="w-full h-full flex items-center justify-center bg-black/20">
-            <div class="text-center text-white">
-              <i class="ri-map-pin-line text-4xl mb-2"></i>
-              <p class="font-medium">Diocese of Wukari</p>
-              <p class="text-sm opacity-90">PMB 1002, Wukari, Taraba State</p>
-            </div>
-          </div>
+        <div class="rounded-2xl overflow-hidden mb-6 shadow-lg">
+          <div ref="mapEl" class="w-full h-[400px]"></div>
         </div>
         <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
           <h3 class="font-playfair text-lg font-semibold text-gray-800 mb-4">Directions & Landmarks</h3>
@@ -111,7 +104,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
 
 interface ContactForm {
   name: string
@@ -144,19 +137,50 @@ function handleSubmit(e: Event) {
   }, 1500)
 }
 
-const newsletterEmail = ref('')
-const newsletterSending = ref(false)
-const newsletterSuccess = ref(false)
+// newsletter logic removed (unused)
 
-function subscribe() {
-  if (!newsletterEmail.value) return
-  newsletterSending.value = true
-  setTimeout(() => {
-    newsletterSending.value = false
-    newsletterSuccess.value = true
-    setTimeout(() => (newsletterSuccess.value = false), 2000)
-    newsletterEmail.value = ''
-  }, 1000)
+// --- Live map (Leaflet), same center as Parishes page ---
+const mapEl = ref<HTMLDivElement | null>(null)
+let map: { remove: () => void } | null = null
+
+const initMap = async () => {
+  if (!mapEl.value) return
+  const leafletMod = await import('leaflet')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const L: any = (leafletMod as any).default ?? leafletMod
+  await import('leaflet/dist/leaflet.css')
+
+  // Fix default marker icon paths in Vite
+  delete (L.Icon.Default.prototype as unknown as Record<string, unknown>)['_getIconUrl']
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: new URL('leaflet/dist/images/marker-icon-2x.png', import.meta.url).toString(),
+    iconUrl: new URL('leaflet/dist/images/marker-icon.png', import.meta.url).toString(),
+    shadowUrl: new URL('leaflet/dist/images/marker-shadow.png', import.meta.url).toString()
+  })
+
+  const center: [number, number] = [7.8711, 9.7800]
+  map = L.map(mapEl.value).setView(center, 13)
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map)
+
+  L.marker(center)
+    .addTo(map)
+    .bindPopup('<strong>Diocese of Wukari</strong><br/>PMB 1002, Wukari, Taraba State')
 }
+
+onMounted(async () => {
+  await nextTick()
+  initMap()
+})
+
+onBeforeUnmount(() => {
+  if (map) {
+    map.remove()
+    map = null
+  }
+})
 
 </script>

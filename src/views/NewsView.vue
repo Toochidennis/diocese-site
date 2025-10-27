@@ -67,7 +67,7 @@
       <div class="bg-white rounded-3xl overflow-hidden shadow-lg card-hover scroll-reveal">
         <div class="lg:flex">
           <div class="lg:w-1/2 h-80 lg:h-auto">
-            <img
+            <img referrerpolicy="no-referrer"
               src="https://readdy.ai/api/search-image?query=Catholic%20bishop%20celebrating%20mass%20in%20Nigerian%20cathedral%2C%20beautiful%20liturgical%20ceremony%20with%20altar%20servers%20and%20congregation%2C%20ornate%20church%20interior%20with%20golden%20altar%20and%20religious%20artwork%2C%20solemn%20Catholic%20worship%20service%2C%20African%20Catholic%20bishop%20in%20ceremonial%20vestments&width=600&height=400&seq=featured-news&orientation=landscape"
               alt="Featured News" class="w-full h-full object-cover object-top">
           </div>
@@ -110,7 +110,7 @@
               data-category="parish">
               <div class="md:flex">
                 <div class="md:w-1/3 h-48 md:h-auto">
-                  <img
+                  <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
                     src="https://readdy.ai/api/search-image?query=Catholic%20church%20construction%20project%20in%20Nigeria%2C%20new%20parish%20church%20building%20under%20construction%2C%20modern%20church%20architecture%20with%20cross%20and%20bell%20tower%2C%20construction%20workers%20and%20community%20members%20celebrating%2C%20progress%20on%20new%20Catholic%20parish%20building&width=400&height=300&seq=church-construction&orientation=landscape"
                     alt="Church Construction" class="w-full h-full object-cover object-top">
                 </div>
@@ -140,7 +140,7 @@
               data-category="community">
               <div class="md:flex">
                 <div class="md:w-1/3 h-48 md:h-auto">
-                  <img
+                  <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
                     src="https://readdy.ai/api/search-image?query=Catholic%20charity%20outreach%20program%20in%20Nigerian%20community%2C%20volunteers%20distributing%20food%20and%20supplies%20to%20families%2C%20church%20members%20helping%20poor%20and%20needy%2C%20community%20service%20and%20social%20ministry%2C%20Catholic%20social%20action%20in%20rural%20Nigeria&width=400&height=300&seq=charity-outreach&orientation=landscape"
                     alt="Charity Outreach" class="w-full h-full object-cover object-top">
                 </div>
@@ -170,7 +170,7 @@
               data-category="events">
               <div class="md:flex">
                 <div class="md:w-1/3 h-48 md:h-auto">
-                  <img
+                  <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
                     src="https://readdy.ai/api/search-image?query=Catholic%20youth%20conference%20in%20Nigeria%2C%20young%20people%20gathered%20for%20religious%20event%2C%20youth%20ministry%20program%20with%20speakers%20and%20activities%2C%20Catholic%20teenagers%20and%20young%20adults%20in%20church%20setting%2C%20vibrant%20youth%20gathering%20with%20banners&width=400&height=300&seq=youth-conference&orientation=landscape"
                     alt="Youth Conference" class="w-full h-full object-cover object-top">
                 </div>
@@ -200,7 +200,7 @@
               data-category="announcements">
               <div class="md:flex">
                 <div class="md:w-1/3 h-48 md:h-auto">
-                  <img
+                  <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
                     src="https://readdy.ai/api/search-image?query=Catholic%20priest%20ordination%20ceremony%20in%20Nigerian%20cathedral%2C%20bishop%20laying%20hands%20on%20new%20priest%2C%20solemn%20ordination%20liturgy%20with%20congregation%2C%20religious%20ceremony%20with%20altar%20servers%20and%20family%20members%2C%20sacred%20Catholic%20ordination%20ritual&width=400&height=300&seq=priest-ordination&orientation=landscape"
                     alt="Priest Ordination" class="w-full h-full object-cover object-top">
                 </div>
@@ -230,7 +230,7 @@
               data-category="press">
               <div class="md:flex">
                 <div class="md:w-1/3 h-48 md:h-auto">
-                  <img
+                  <img loading="lazy" decoding="async" referrerpolicy="no-referrer"
                     src="https://readdy.ai/api/search-image?query=Catholic%20education%20program%20in%20Nigerian%20school%2C%20students%20in%20classroom%20with%20teacher%2C%20diocesan%20education%20initiative%20with%20books%20and%20learning%20materials%2C%20Catholic%20school%20environment%20with%20cross%20and%20religious%20symbols%2C%20quality%20education%20in%20church%20setting&width=400&height=300&seq=education-program&orientation=landscape"
                     alt="Education Program" class="w-full h-full object-cover object-top">
                 </div>
